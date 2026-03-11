@@ -1,0 +1,222 @@
+{
+  "name": "resume_optimization_agent",
+  "nodes": [
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={\n  \"prompt\": \"You are an expert resume optimization assistant.\\nYou will receive:\\n1. A candidate’s current resume: {{$node[\"Base Resume\"].json[\"resume\"]}}\\n2. A target job description: {{$node[\"Job Description\"].json[\"job_description\"]}}\\nYour task is to rewrite and optimize the resume specifically for the job description.\\nInstructions:\\n- Tailor the summary, skills, and experience to match the job requirements.\\n- Use keywords and phrases directly from the job description where relevant.\\n- Emphasize measurable achievements and impact.\\n- Reorder or rephrase bullet points to prioritize the most relevant experience.\\n- Do not invent new roles, companies, or achievements.\\n- Improve clarity, conciseness, and professionalism.\\n- Keep formatting clean and ATS-friendly (no tables, no graphics).\\n- Maintain truthful representation of the candidate’s background.\\nOutput only the optimized resume in full, with no explanations or commentary.\"\n}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        320,
+        224
+      ],
+      "id": "4b89c4f9-5a4c-4b24-a501-136b84007755",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f98534c9-cf7a-44f9-9d58-fefa69573c84",
+              "name": "resume",
+              "value": "Mystery Penguin example@email.com (555)123-4567 Edgar Springs, MO Summary Competent software engineer, able to work effectively in a fast-paced, agile environment, and passionate about developing software architecture for primarily web applications. Experience Software Engineer BlueTech Software • Los Angeles, California July 2019 - Present Researched and created a new application to be used by the company, resulting in a 1.3x increase in sales Created a new software development framework to develop applications faster and more efficiently Developed the process of testing and recording the results of the test, thereby increasing the number of tests completed per day by 10% Developed a new technique for reducing the time it takes to fix crashes by 20% Web Developer Mezzanine • Los Angeles, California May 2018 Developed a collaborative environment for all team members, creating a strong sense of community and empowerment Designed a new web application to increase collaboration among design, engineering and sales teams, resulting in a 10% increase in revenue in one quarter Built a custom web application for a major client, successfully delivering an integrated CRM system in just 2 weeks Maintained a clean, professional and creative web presence for the company to convey the professional image of the organization Used Adobe InDesign to design, edit and layout the company's print & digital collateral Software Engineer Geeks 4 Nerds • Los Angeles, California October 2016 Designed and implemented a new cloud-based mobile POS platform, resulting in a 50% increase in customer retention Collaborated with hardware and software development teams to ensure seamless integration of the new POS system Continued to develop specialty skills related to his expertise in mobile POS and payment technologies Developed and continuously improved an internal knowledge base of best practices for software development Skills C, Java, Sdlc, Software Development, Linux, C#, Communication Skills Education Bachelor's Degree in Computer Science Zirkel College • Los Angeles, California",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -192,
+        320
+      ],
+      "id": "e3a63452-9b26-42ac-a19c-2f894499c4f7",
+      "name": "Base Resume"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "260301b9-ad25-4d92-8dec-169184c78abc",
+              "name": "job_description",
+              "value": "CISA Cyber Defense Analyst This role uses data collected from a variety of cyber defense tools (e.g., IDS alerts, firewalls, network traffic logs) to analyze events that occur within their environments for the purposes of mitigating threats.  Personnel performing this work role may unofficially or alternatively be called:  Computer Network Defense (CND) Analyst Cybersecurity Analyst Incident Analyst Network Defense Technician Network Security Engineer Security Analyst Security Operator Sensor Analyst Senior Network Security Engineer Focused Operations Security Analyst Skill Community: Cybersecurity Category: Protect and Defend Specialty Area: Cyber Defense Analysis Work Role Code: 511  Core Tasks Provide timely detection, identification, and alerting of possible attacks/intrusions, anomalous activities, and misuse activities and distinguish these incidents and events from benign activities. (T0258) Use cyber defense tools for continual monitoring and analysis of system to identify malicious activity. (T0259) Document and escalate incidents (including event's history, status, and potential impact for further action) that may cause ongoing and immediate impact to the environment. (T0155) Analyze identified malicious activity to determine weaknesses exploited, exploitation methods, effects on system and information. (T0260) Perform event correlation using information gathered from a variety of sources within the enterprise to gain situational awareness and determine the effectiveness of an observed attack. (T0166) Conduct research, analysis, and correlation across a wide variety of all source data sets (indications and warnings). (T0294) Receive and analyze network alerts from various sources within the enterprise and determine possible causes of such alerts. (T0214) Perform cyber defense trend analysis and reporting. (T0164) Characterize and analyze network traffic to identify anomalous activity and potential threats to network resources. (T0023) Coordinate with enterprise-wide cyber defense staff to validate network alerts. (T0043) Identify and analyze anomalies in network traffic using metadata. (T0293) Provide daily summary reports of network events and activity relevant to cyber defense practices. (T0198) Identify applications and operating systems of a network device based on network traffic. (T0297) Core Competencies Computer Network Defense Data Management Information Systems/Network Security Infrastructure Design Network Management Technology Awareness Threat Analysis Vulnerability Assessment Core Knowledge Knowledge of cybersecurity and privacy principles. (K0004) Knowledge of computer networking concepts and protocols, and network security methodologies. (K0001) Knowledge of laws, regulations, policies, and ethics as they relate to cybersecurity and privacy. (K0003) Knowledge of risk management processes (e.g., methods for assessing and mitigating risk). (K0002) Knowledge of cyber threats and vulnerabilities. (K0005) Knowledge of specific operational impacts of cybersecurity lapses. (K0006) Knowledge of intrusion detection methodologies and techniques for detecting host and network-based intrusions. (K0046) Knowledge of cyber defense and information security policies, procedures, and regulations. (K0157) Knowledge of the common attack vectors on the network layer. (K0160) Knowledge of Intrusion Detection System (IDS)/Intrusion Prevention System (IPS) tools and applications. (K0324) Skill in collecting data from a variety of cyber defense resources. (S0063) Knowledge of information technology (IT) security principles and methods (e.g., firewalls, demilitarized zones, encryption). (K0049) Knowledge of how traffic flows across the network (e.g., Transmission Control Protocol [TCP] and Internet Protocol [IP], Open System Interconnection Model [OSI], Information Technology Infrastructure Library, current version [ITIL]). (K0061) Knowledge of network protocols such as TCP/IP, Dynamic Host Configuration, Domain Name System (DNS), and directory services. (K0332) Knowledge of network traffic analysis methods. (K0058) Knowledge of new and emerging information technology (IT) and cybersecurity technologies. (K0059) Knowledge of different classes of attacks (e.g., passive, active, insider, close-in, distribution attacks). (K0161) Knowledge of cyber attackers (e.g., script kiddies, insider threat, non-nation state-sponsored, and nation sponsored). (K162) Knowledge of cyber defense and vulnerability assessment tools and their capabilities. (K0013) Knowledge of what constitutes a network attack and a network attack's relationship to both threats and vulnerabilities. (K0106) Knowledge of how to use network analysis tools to identify vulnerabilities. (K0339) Skill in recognizing and categorizing types of vulnerabilities and associated attacks. (S0078) Skill in performing packet-level analysis. (S0156)",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -192,
+        144
+      ],
+      "id": "f58728b0-e490-4cfc-9117-7a66d3cbc94e",
+      "name": "Job Description"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        80,
+        240
+      ],
+      "id": "01de9276-285e-4864-b746-3677966f2a45",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4o-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        320,
+        416
+      ],
+      "id": "90fe9d2e-de77-4461-94d6-361caf471350",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "OTKCcU5lzzdRaX1Q",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "toText",
+        "sourceProperty": "output",
+        "options": {
+          "fileName": "optimized_resume"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        672,
+        224
+      ],
+      "id": "2afb65d8-caf2-4803-9fef-0202475016bd",
+      "name": "Convert to File"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -416,
+        256
+      ],
+      "id": "8f1a1b14-f70e-40b9-8d02-81a1ad6cf941",
+      "name": "On click"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Job Description": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Base Resume": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "On click": {
+      "main": [
+        [
+          {
+            "node": "Base Resume",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Job Description",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "aae42b43-4518-4652-b0ab-5397349e7ed2",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "09d3e50023f89e1fb7e59349e2dd76da4734db46eda63d9f0d2ed65e2d42678b"
+  },
+  "id": "P2fiXfDY45ZIHGGs",
+  "tags": []
+}
